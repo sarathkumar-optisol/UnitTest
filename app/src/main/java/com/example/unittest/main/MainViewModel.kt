@@ -5,7 +5,7 @@ import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.unittest.db.UserDatabase
-import com.example.unittest.modals.Resource
+import com.example.unittest.utils.Resource
 import com.example.unittest.utils.DispatcherProvider
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -75,12 +75,12 @@ class MainViewModel @ViewModelInject constructor(
                     Log.d("MVIEWMODEL", "Incorrect")
                 }
                 is Resource.Success -> {
-                    val data = loginResponse.data?.password
+                    val data = loginResponse.data
                     Log.d("$data", "registrationResponse")
                     if (data == null) {
                         _registerData.value = RegisterEvent.Failure("UnExpected Error")
                     } else {
-                        _registerData.value = RegisterEvent.Success(data)
+                        _registerData.value = RegisterEvent.Success(data.password)
 
                         Log.d("$data", "success")
                     }

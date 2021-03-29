@@ -58,8 +58,6 @@ i
 9app/src/main/java/com/example/unittest/db/UserDatabase.kt,3\3\33ed99c4d78d8de4627add392d1e94064fd8ad2d
 f
 6app/src/main/java/com/example/unittest/di/AppModule.kt,4\a\4abeeb7cc85cff7f4b074765e80b01f74efec5b0
-i
-9app/src/main/java/com/example/unittest/modals/Resource.kt,f\d\fd3f21bd9abef73e57df7b9d4454f74671f55403
 d
 4app/src/main/java/com/example/unittest/db/UserDao.kt,f\d\fdabf4e414778e8bb3dcd2aa02133fd9aac19730
 t
@@ -76,3 +74,13 @@ w
 Gapp/src/main/java/com/example/unittest/activity/RegistrationActivity.kt,e\3\e337ae93be4039baf00bad8c7102bffcdfc8dc7e
 o
 ?app/src/main/java/com/example/unittest/activity/MainActivity.kt,7\2\7260af6534e6aba29818aa52987cd285d6973793
+Y
+)app/src/main/res/layout/activity_home.xml,8\4\84bbfd95b490b92591d2b037417f036942315d57
+a
+1app/src/main/res/layout/activity_registration.xml,3\3\33d54503f0d7617c3e23e16a0f8b5c214b89354e
+S
+#app/src/main/res/values/strings.xml,d\2\d2281fbb3027de2722081a53408dd77628bf080e
+Y
+)app/src/main/res/layout/activity_main.xml,7\6\76b07e40f24cce093536731477540f12e7da3cb6
+h
+8app/src/main/java/com/example/unittest/utils/Resource.kt,8\d\8d6999f7dc134f60081815d0755abed3f2f1cfb8

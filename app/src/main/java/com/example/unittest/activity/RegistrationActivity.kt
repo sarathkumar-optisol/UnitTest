@@ -13,10 +13,8 @@ import androidx.lifecycle.lifecycleScope
 import com.example.unittest.R
 import com.example.unittest.databinding.ActivityRegistrationBinding
 import com.example.unittest.main.MainViewModel
-import com.example.unittest.modals.Resource
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
-import java.util.regex.Pattern
 
 @AndroidEntryPoint
 class RegistrationActivity : AppCompatActivity() {

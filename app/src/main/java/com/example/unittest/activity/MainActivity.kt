@@ -58,12 +58,14 @@ class MainActivity : AppCompatActivity() {
                 when(event){
                     is MainViewModel.RegisterEvent.Success ->{
                         binding.progressBarMainActivity.isVisible = false
-                        val data = event.result
+                        val password = event.result
+                        if (password == binding.etPassword.text.toString()){
                             val intent = Intent(this@MainActivity,HomeActivity::class.java)
                             startActivity(intent)
                             finish()
-
-
+                        }else{
+                            Toast.makeText(this@MainActivity,R.string.invalid_credential,Toast.LENGTH_LONG).show()
+                        }
                     }
                     is MainViewModel.RegisterEvent.Failure ->{
                         Toast.makeText(this@MainActivity,R.string.invalid_credential,Toast.LENGTH_LONG).show()

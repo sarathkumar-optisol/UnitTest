@@ -1,7 +1,7 @@
 package com.example.unittest.main
 
 import com.example.unittest.modals.LogInData
-import com.example.unittest.modals.Resource
+import com.example.unittest.utils.Resource
 
 /**
  * Created by SARATH on 29-03-2021
