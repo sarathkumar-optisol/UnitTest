@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="@dimen/xxl_margin"
-    tools:context=".MainActivity">
+    tools:context=".activity.MainActivity">
 
     <TextView
         android:id="@+id/tvArabic"
@@ -113,7 +113,7 @@
 
 
     <Button
-        android:id="@+id/btnSignUp"
+        android:id="@+id/btnSignIn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/custom_border"
@@ -129,14 +129,14 @@
         android:id="@+id/btnSignInFB"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/l_margin"
         android:background="@drawable/custom_border"
         android:text="@string/signin_with_facebook"
         android:textAllCaps="false"
+        android:layout_marginTop="@dimen/m_margin"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="@+id/btnSignUp"
         app:layout_constraintStart_toStartOf="@+id/btnSignUp"
-        app:layout_constraintTop_toBottomOf="@+id/btnSignUp" />
+        app:layout_constraintTop_toBottomOf="@+id/btnSignIn" />
 
     <Button
         android:id="@+id/btnSignInTwitter"
@@ -176,7 +176,7 @@
 
 
     <ProgressBar
-        android:id="@+id/progressBar"
+        android:id="@+id/progressBarMainActivity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="gone"

@@ -5,7 +5,6 @@ import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
-
 /**
  * Created by SARATH on 29-03-2021
  */
@@ -14,10 +13,11 @@ import java.io.Serializable
     tableName ="UserLoginData"
 )
 data class LogInData(
-    @PrimaryKey(autoGenerate = true)
-    var id : Int? = null ,
     @SerializedName("userName")
     var userName : String,
     @SerializedName("password")
     var password : String
-) : Serializable
+) : Serializable{
+    @PrimaryKey(autoGenerate = true)
+    var id : Int? = null
+}

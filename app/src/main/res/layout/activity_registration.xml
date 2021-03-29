@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="@dimen/xxl_margin"
-    tools:context=".RegistrationActivity">
+    tools:context=".activity.RegistrationActivity">
 
 
     <EditText
@@ -17,6 +17,7 @@
         android:drawableStart="@drawable/ic_baseline_person_outline_24"
         android:drawablePadding="@dimen/s_padding"
         android:hint="@string/username"
+        android:inputType="textEmailAddress"
         android:maxLines="1"
         android:padding="@dimen/l_padding"
         app:layout_constraintEnd_toEndOf="parent"
@@ -84,5 +85,16 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.35" />
 
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
