@@ -7,10 +7,8 @@ import com.example.unittest.db.UserDatabase
 /**
  * Created by SARATH on 29-03-2021
  */
-class MainViewModal @ViewModelInject constructor(
-        private val repository: MainRepository,
-        private val db : UserDatabase
-)  : ViewModel() {
-
-
+class MainViewModel @ViewModelInject constructor(
+    private val repository: MainRepository,
+    private val db : UserDatabase
+) : ViewModel() {
 }

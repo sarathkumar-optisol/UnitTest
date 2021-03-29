@@ -7,7 +7,6 @@ import com.example.unittest.modals.LogInData
 /**
  * Created by SARATH on 29-03-2021
  */
-
 @Database(
     entities = [LogInData ::class],
     version = 1
@@ -15,4 +14,5 @@ import com.example.unittest.modals.LogInData
 abstract class UserDatabase : RoomDatabase() {
 
     abstract fun getUserDao() : UserDao
+
 }

@@ -13,5 +13,4 @@ interface UserDao {
 
     @Insert(onConflict = OnConflictStrategy.ABORT)
     suspend fun insert(logInData: LogInData)
-
 }

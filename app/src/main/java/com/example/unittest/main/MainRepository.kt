@@ -1,6 +1,5 @@
 package com.example.unittest.main
 
-import android.service.autofill.UserData
 import com.example.unittest.modals.LogInData
 
 /**
@@ -9,5 +8,4 @@ import com.example.unittest.modals.LogInData
 interface MainRepository {
 
     suspend fun insertUserData(logInData: LogInData)
-
 }

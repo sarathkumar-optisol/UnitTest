@@ -4,6 +4,8 @@ import android.content.Context
 import androidx.room.Room
 import com.example.unittest.db.UserDao
 import com.example.unittest.db.UserDatabase
+import com.example.unittest.main.DefaultMainRepository
+import com.example.unittest.main.MainRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -14,14 +16,15 @@ import javax.inject.Singleton
 /**
  * Created by SARATH on 29-03-2021
  */
+
 @Module
 @InstallIn(ApplicationComponent::class)
 object AppModule {
 
-    @Singleton
     @Provides
-    fun providesDatabase(db: UserDatabase) : UserDao{
-        return db.getUserDao()
+    @Singleton
+    fun provideUserDao(userDatabase: UserDatabase): UserDao {
+        return userDatabase.getUserDao()
     }
 
     @Provides
@@ -33,4 +36,8 @@ object AppModule {
             "user_data.db"
         ).build()
     }
+
+    @Singleton
+    @Provides
+    fun provideMainRepository(db : UserDatabase) : MainRepository = DefaultMainRepository(db)
 }
