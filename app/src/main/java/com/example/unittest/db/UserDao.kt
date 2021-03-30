@@ -5,6 +5,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.example.unittest.modals.LogInData
+import com.example.unittest.modals.UserProfile
 import com.example.unittest.utils.Resource
 
 /**
@@ -21,5 +22,10 @@ interface UserDao {
 
     @Query("SELECT * FROM userlogindata")
     fun getUserList() : List<LogInData>
+
+    @Query("SELECT * FROM userprofiledata")
+    fun getUserProfileList() : List<UserProfile>
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun insertUserProfile(userProfile: UserProfile) : Long
 
 }

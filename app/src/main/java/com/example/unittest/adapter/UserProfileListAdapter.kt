@@ -9,23 +9,24 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.unittest.databinding.UserListBinding
 import com.example.unittest.modals.LogInData
+import com.example.unittest.modals.UserProfile
 
 /**
  * Created by SARATH on 30-03-2021
  */
 
 
-class UserListAdapter(private val context: Context) : RecyclerView.Adapter<UserListAdapter.UserListViewHolder>() {
+class UserProfileListAdapter(private val context: Context) : RecyclerView.Adapter<UserProfileListAdapter.UserListViewHolder>() {
 
     inner class UserListViewHolder(val binding : UserListBinding) : RecyclerView.ViewHolder(binding.root)
 
 
-    private val diffCallback = object : DiffUtil.ItemCallback<LogInData>(){
-        override fun areItemsTheSame(oldItem: LogInData, newItem: LogInData): Boolean {
+    private val diffCallback = object : DiffUtil.ItemCallback<UserProfile>(){
+        override fun areItemsTheSame(oldItem: UserProfile, newItem: UserProfile): Boolean {
             return oldItem.id == newItem.id
         }
 
-        override fun areContentsTheSame(oldItem: LogInData, newItem: LogInData): Boolean {
+        override fun areContentsTheSame(oldItem: UserProfile, newItem: UserProfile): Boolean {
             return oldItem == newItem
         }
 
@@ -33,12 +34,12 @@ class UserListAdapter(private val context: Context) : RecyclerView.Adapter<UserL
 
 
     private val differ = AsyncListDiffer(this,diffCallback)
-    var userListAdapter : MutableList<LogInData>
+    var userListAdapter : MutableList<UserProfile>
 
         get()=differ.currentList
         set(value) {differ.submitList(value)}
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserListAdapter.UserListViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserProfileListAdapter.UserListViewHolder {
         return UserListViewHolder(UserListBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
@@ -46,12 +47,13 @@ class UserListAdapter(private val context: Context) : RecyclerView.Adapter<UserL
         ))
     }
 
-    override fun onBindViewHolder(holder: UserListAdapter.UserListViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: UserProfileListAdapter.UserListViewHolder, position: Int) {
         val userData  = userListAdapter[position]
 
         holder.binding.apply {
-//            tvUserEmail.text = userData.userName
-//            tvUserPass.text = userData.password
+            tvUserName.text = userData.name
+            tvUsermail.text = userData.email
+            tvUserAge.text = userData.age.toString()
         }
 
     }

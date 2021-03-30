@@ -2,6 +2,7 @@ package com.example.unittest.main
 
 import com.example.unittest.db.UserDatabase
 import com.example.unittest.modals.LogInData
+import com.example.unittest.modals.UserProfile
 import com.example.unittest.utils.Resource
 import javax.inject.Inject
 
@@ -26,6 +27,16 @@ class DefaultMainRepository @Inject constructor(
     override fun getUserList(): Resource<List<LogInData>> {
         val userList = db.getUserDao().getUserList()
         return Resource.Success(userList)
+    }
+
+    override fun getUserProfileList(): Resource<List<UserProfile>> {
+        val userProfile=db.getUserDao().getUserProfileList()
+        return Resource.Success(userProfile)
+    }
+
+    override suspend fun insertUserProfile(userProfile: UserProfile): Resource<Long> {
+        val userProfile = db.getUserDao().insertUserProfile(userProfile)
+        return Resource.Success(1)
     }
 
 }
