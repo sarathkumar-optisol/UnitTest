@@ -8,10 +8,6 @@ g
 7app/schemas/com.example.unittest.db.UserDatabase/1.json,4\e\4e9d3ab4aba36a1268e4eb105015435f691ced6e
 <
 build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
-R
-"app/src/main/res/values/colors.xml,9\6\969faa2a5d9f5e8390e958d2c07f2cfd54676e6b
-_
-/app/src/main/res/drawable-v24/custom_border.xml,5\8\58a01c060e6dc14b123535f8d26bbb7dcf5c0a22
 e
 5app/src/main/res/drawable-v24/custom_border_color.xml,9\e\9e8a3020311aa4c461248cf2d1bff5650b933fd8
 x
@@ -42,10 +38,6 @@ F
 app/proguard-rules.pro,9\e\9e08934d811afe28fbc77aaa3c0d747b94348db9
 ?
 settings.gradle,0\5\05efc8b1657769a27696d478ded1e95f38737233
-R
-"app/src/main/res/values/themes.xml,e\b\eb7f0f821bde169dd21862705b2b042d2cea69a3
-X
-(app/src/main/res/values-night/themes.xml,8\c\8c3a6b96d9ffba496992e612d58227c19e6b9e65
 @
 app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164
 P
@@ -74,8 +66,6 @@ w
 Gapp/src/main/java/com/example/unittest/activity/RegistrationActivity.kt,e\3\e337ae93be4039baf00bad8c7102bffcdfc8dc7e
 o
 ?app/src/main/java/com/example/unittest/activity/MainActivity.kt,7\2\7260af6534e6aba29818aa52987cd285d6973793
-Y
-)app/src/main/res/layout/activity_home.xml,8\4\84bbfd95b490b92591d2b037417f036942315d57
 a
 1app/src/main/res/layout/activity_registration.xml,3\3\33d54503f0d7617c3e23e16a0f8b5c214b89354e
 S
@@ -84,3 +74,5 @@ Y
 )app/src/main/res/layout/activity_main.xml,7\6\76b07e40f24cce093536731477540f12e7da3cb6
 h
 8app/src/main/java/com/example/unittest/utils/Resource.kt,8\d\8d6999f7dc134f60081815d0755abed3f2f1cfb8
+q
+Aapp/src/main/java/com/example/unittest/adapter/UserListAdapter.kt,7\2\72fbb200aa5d8df1dd30c95fe10d92a1f7ccff4d

@@ -11,4 +11,6 @@ interface MainRepository {
     suspend fun insertUserData(userName : String , password : String) : Resource<Long>
 
     fun getUserData(userName: String) : Resource<LogInData>
+
+    fun getUserList() : Resource<List<LogInData>>
 }

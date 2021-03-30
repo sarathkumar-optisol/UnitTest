@@ -5,6 +5,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.example.unittest.modals.LogInData
+import com.example.unittest.utils.Resource
 
 /**
  * Created by SARATH on 29-03-2021
@@ -17,5 +18,8 @@ interface UserDao {
 
     @Query("SELECT * FROM userlogindata WHERE userName = :key")
     fun getData(key : String) : LogInData
+
+    @Query("SELECT * FROM userlogindata")
+    fun getUserList() : List<LogInData>
 
 }

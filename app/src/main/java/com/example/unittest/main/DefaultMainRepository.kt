@@ -23,4 +23,9 @@ class DefaultMainRepository @Inject constructor(
         return Resource.Success(data)
     }
 
+    override fun getUserList(): Resource<List<LogInData>> {
+        val userList = db.getUserDao().getUserList()
+        return Resource.Success(userList)
+    }
+
 }

@@ -9,11 +9,9 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
-import com.bumptech.glide.Glide.init
 import com.example.unittest.R
 import com.example.unittest.databinding.ActivityMainBinding
 import com.example.unittest.main.MainViewModel
-import com.example.unittest.modals.LogInData
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 
@@ -82,6 +80,9 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+    /**
+     * hide keyboard on user touches outside
+     */
     private fun hideKeyboard(view : View){
         val imm = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
         imm.hideSoftInputFromWindow(view.windowToken,0)
