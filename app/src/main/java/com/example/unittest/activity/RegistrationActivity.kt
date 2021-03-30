@@ -60,6 +60,10 @@ class RegistrationActivity : AppCompatActivity() {
             }
         }
 
+        /**
+         * observer data from the stateFlow
+         * @see registerData
+         */
         lifecycleScope.launchWhenStarted {
                 viewModel.registerData.collect{ event->
                     when(event){
@@ -83,6 +87,9 @@ class RegistrationActivity : AppCompatActivity() {
                 }
         }
     }
+    /**
+     * hide keyboard on user touches outside
+     */
     private fun hideKeyboard(view : View){
         val imm = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
         imm.hideSoftInputFromWindow(view.windowToken,0)

@@ -7,11 +7,12 @@
     tools:context=".activity.HomeActivity">
 
 
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvAllUserList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="HomeActivity"
-        android:textAlignment="center"
+        android:clipToPadding="false"
+        android:paddingBottom="@dimen/xxxl_padding"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
