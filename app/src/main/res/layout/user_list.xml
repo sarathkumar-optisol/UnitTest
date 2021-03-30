@@ -8,7 +8,7 @@
     android:padding="@dimen/m_margin">
 
     <TextView
-        android:id="@+id/tvUserEmail"
+        android:id="@+id/tvUserName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="userName"
@@ -19,14 +19,24 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tvUserPass"
+        android:id="@+id/tvUserAge"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Password"
+        android:text="age"
         android:textSize="@dimen/text_32"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvUserEmail" />
+        app:layout_constraintTop_toBottomOf="@+id/tvUserName" />
+    <TextView
+        android:id="@+id/tvUsermail"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="mail"
+        android:textSize="@dimen/text_32"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvUserAge" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

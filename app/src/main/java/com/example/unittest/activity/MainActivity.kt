@@ -12,11 +12,31 @@ import androidx.lifecycle.lifecycleScope
 import com.example.unittest.R
 import com.example.unittest.databinding.ActivityMainBinding
 import com.example.unittest.main.MainViewModel
+import com.example.unittest.modals.UserProfile
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
+
+    var users = arrayListOf<UserProfile>(UserProfile("sarath", "sarath@gmail.com", 23, "sarath"),
+            UserProfile("kumar", "abc@gmail.com", 24, "sarath"),
+            UserProfile("Oliver", "Oliver@gmail.com", 28, "Oliver"),
+            UserProfile("Lucas", "Lucas@gmail.com", 23, "Lucas"),
+            UserProfile("William", "William@gmail.com", 30, "William"),
+            UserProfile("Ethan", "Ethan@gmail.com", 29, "Ethan"),
+            UserProfile("sarath", "sarath@gmail.com", 23, "sarath"),
+            UserProfile("kumar", "abc@gmail.com", 24, "sarath"),
+            UserProfile("Oliver", "Oliver@gmail.com", 28, "Oliver"),
+            UserProfile("kumar1", "ab1c@gmail.com", 24, "sarath"),
+            UserProfile("Oliver", "Oliver@gmail.com", 28, "Oliver"),
+            UserProfile("Lucas", "Lucas@gmail.com", 23, "Lucas"),
+            UserProfile("William", "William@gmail.com", 30, "William"),
+            UserProfile("Ethan", "Ethan@gmail.com", 29, "Ethan"),
+            UserProfile("sarath", "sarath@gmail.com", 23, "sarath"),
+            UserProfile("kumar", "abc@gmail.com", 24, "sarath"),
+            UserProfile("Oliver", "Oliver@gmail.com", 28, "Oliver")
+    )
 
     private lateinit var binding : ActivityMainBinding
 
@@ -28,6 +48,10 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
+        for (i in users){
+            viewModel.insertUserProfile(i)
+        }
 
         /**
          * navigate to Registration Screen
