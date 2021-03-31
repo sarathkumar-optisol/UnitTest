@@ -14,6 +14,7 @@ interface MainRepository {
     fun getUserData(userName: String) : Resource<LogInData>
 
     fun getUserList() : Resource<List<LogInData>>
+
     fun getUserProfileList() : Resource<List<UserProfile>>
 
     suspend fun insertUserProfile(userProfile: UserProfile) : Resource<Long>
