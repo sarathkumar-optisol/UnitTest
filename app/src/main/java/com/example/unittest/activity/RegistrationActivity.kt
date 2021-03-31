@@ -1,11 +1,15 @@
 package com.example.unittest.activity
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.util.Patterns
 import android.view.View
 import android.view.inputmethod.InputMethodManager
+import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.core.view.isVisible
@@ -22,6 +26,12 @@ class RegistrationActivity : AppCompatActivity() {
     private lateinit var binding : ActivityRegistrationBinding
 
     private val viewModel : MainViewModel by viewModels()
+
+    lateinit var sharedPreferences: SharedPreferences
+
+    lateinit var userName : String
+    lateinit var password : String
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,10 +56,16 @@ class RegistrationActivity : AppCompatActivity() {
         /**
          * UserRegistration
          */
+
+        sharedPreferences = getSharedPreferences("token" , Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+
+
         binding.btnSignUp.setOnClickListener {
 
-            val userName = binding.etNewUserNAme.text.toString()
-            val password = binding.etNewUserPassword.text.toString()
+            userName = binding.etNewUserNAme.text.toString()
+            password = binding.etNewUserPassword.text.toString()
+
             hideKeyboard(binding.btnSignUp)
             if(binding.etNewUserNAme.text?.isEmpty()!! || binding.etNewUserPassword.text?.isEmpty()!! || ! Patterns.EMAIL_ADDRESS.matcher(binding.etNewUserNAme.text).matches() || binding.etNewUserPassword.text.length < 6){
                 Toast.makeText(this,"Enter Valid email or password", Toast.LENGTH_SHORT).show()
@@ -69,6 +85,14 @@ class RegistrationActivity : AppCompatActivity() {
                     when(event){
                         is MainViewModel.RegisterEvent.Success ->{
                             binding.progressBar.isVisible = false
+                            editor.apply{
+                                putString("token", userName)
+                                Log.d("TOKEN",userName)
+                                apply()
+                            }
+                            val token = sharedPreferences.getString("token","kk")
+                            Log.d("TOKEN","$token")
+
                             val intent = Intent(this@RegistrationActivity,HomeActivity::class.java)
                             startActivity(intent)
                             finish()
