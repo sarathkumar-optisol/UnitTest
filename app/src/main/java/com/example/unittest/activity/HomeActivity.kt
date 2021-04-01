@@ -4,6 +4,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.core.view.isVisible
@@ -34,89 +36,58 @@ class HomeActivity : AppCompatActivity() {
 
     lateinit var userListAdapter: UserProfileListAdapter
 
+    lateinit var homeFragament : HomeFragament
+
+    lateinit var profileFragment: ProfileFragment
+
+    lateinit var settingsFragment: SettingsFragment
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+
         setContentView(R.layout.activity_home)
-        binding = ActivityHomeBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+//        binding = ActivityHomeBinding.inflate(layoutInflater)
+//        setContentView(binding.root)
 
 
-//        viewModel.getUserList()
-//        viewModel.getUserProfileList()
+      replaceFragment(HomeFragament(),"Home")
 
-//        setupRecyclerView()
+    }
 
-        val fragments : ArrayList<Fragment> = arrayListOf(
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        //return super.onCreateOptionsMenu(menu)
 
-                HomeFragament(),
-                ProfileFragment(),
-                SettingsFragment()
-        )
-
-        val adapter = ViewPagerAdapter(fragments , this)
-        binding.vpHome.adapter = adapter
+        menuInflater.inflate(R.menu.main_menu,menu)
+        return true
+    }
 
 
-        TabLayoutMediator(binding.tabLayout , binding.vpHome) { tab , position ->
-            if (position == 0){
-                tab.text = "UserList"
-            }else if (position == 1){
-                tab.text = "UserProfile"
-
-            }else{
-                tab.text = "Settings"
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.homeFrg ->{
+                Toast.makeText(this,"home",Toast.LENGTH_SHORT).show()
+                replaceFragment(HomeFragament(),"HomeFragment")
             }
-        }.attach()
+            R.id.profile ->{
+                Toast.makeText(this,"profile",Toast.LENGTH_SHORT).show()
+                replaceFragment(ProfileFragment(),"HomeFragment")
 
+            }
+            R.id.settings ->{
+                Toast.makeText(this,"settings",Toast.LENGTH_SHORT).show()
+                replaceFragment(SettingsFragment(),"HomeFragment")
 
-
-//        lifecycleScope.launchWhenStarted {
-//            viewModel.userListData.collect{ event->
-//                when(event){
-//                    is MainViewModel.ProfileListEvent.Success ->{
-//                        //binding.progressBarMainActivity.isVisible = false
-//                        val data = event.result
-//
-//                        userListAdapter.userListAdapter = event.result.toMutableList()
-//                        for (i in data){
-//                            Log.d("DATA","$i")
-//
-//                        }
-//
-//                    }
-//                    is MainViewModel.ProfileListEvent.Failure ->{
-//                        Toast.makeText(this@HomeActivity,R.string.invalid_credential, Toast.LENGTH_LONG).show()
-//                        /**
-//                         * code for failed to retrieve data
-//                         */
-//                    }
-//                    is MainViewModel.ProfileListEvent.Loading -> {
-//                       // binding.progressBarMainActivity.isVisible = true
-//                    }
-//                    else -> Unit
-//                }
-//
-//            }
-//        }
-
-    }
-
-
-    override fun onBackPressed() {
-        if (binding.vpHome.currentItem == 0){
-            super.onBackPressed()
-        }else{
-            binding.vpHome.currentItem = binding.vpHome.currentItem - 1
+            }
+            else -> true
         }
+        return super.onOptionsItemSelected(item)
+
     }
 
-//    private fun setupRecyclerView() = binding.rvAllUserList.apply{
-//
-//        userListAdapter = UserProfileListAdapter(context)
-//        adapter = userListAdapter
-//        userListAdapter.notifyDataSetChanged()
-//        layoutManager = LinearLayoutManager(context)
-//
-//    }
+    private fun replaceFragment(fragment: Fragment, tag: String) {
+        supportFragmentManager.beginTransaction()
+                .replace(R.id.frameLayout, fragment, tag).commit()
+    }
 }
