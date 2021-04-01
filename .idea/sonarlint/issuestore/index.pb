@@ -86,3 +86,9 @@ r
 Bapp/src/main/java/com/example/unittest/adapter/ViewPagerAdapter.kt,7\9\799c42c5347ad4a35819d2b63afdf8caf10a38f2
 s
 Capp/src/main/java/com/example/unittest/fragments/ProfileFragment.kt,4\9\496fc3324c0b09c84e44c0c748c1315a6af611c7
+Y
+)app/src/main/res/layout/fragment_home.xml,3\1\31c5880846ef63ff1963efbe141ddfd56680bb19
+\
+,app/src/main/res/layout/fragment_profile.xml,b\4\b4466735edf81a3353097aecb75b46205cdee6b6
+]
+-app/src/main/res/layout/fragment_settings.xml,4\f\4fc5b33bc32b9fda83e2938a513ac8733024f0ff
