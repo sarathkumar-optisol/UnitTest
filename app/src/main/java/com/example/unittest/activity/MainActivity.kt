@@ -19,16 +19,16 @@ import kotlinx.coroutines.flow.collect
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
-    var users = arrayListOf<UserProfile>(UserProfile("sarath", "sarath@gmail.com", 23, "sarath"),
-            UserProfile("kumar", "abc@gmail.com", 24, "sarath"),
-            UserProfile("Oliver", "Oliver@gmail.com", 28, "Oliver"),
+    var users = arrayListOf<UserProfile>(UserProfile("sarath", "sarath1@gmail.com", 23, "sarath123"),
+            UserProfile("kumar", "abc54@gmail.com", 24, "sarath35"),
+            UserProfile("Oliver", "Olive1r@gmail.com", 28, "Oliver"),
             UserProfile("Lucas", "Lucas@gmail.com", 23, "Lucas"),
             UserProfile("William", "William@gmail.com", 30, "William"),
-            UserProfile("Ethan", "Ethan@gmail.com", 29, "Ethan"),
+            UserProfile("Ethan", "Ethan@gmail.com", 29, "Ethan1231"),
             UserProfile("sarath", "sarath@gmail.com", 23, "sarath"),
             UserProfile("kumar", "abc@gmail.com", 24, "sarath"),
-            UserProfile("Oliver", "Oliver@gmail.com", 28, "Oliver"),
-            UserProfile("kumar1", "ab1c@gmail.com", 24, "sarath"),
+            UserProfile("Oliver", "Oliver21@gmail.com", 28, "Oliver"),
+            UserProfile("kumar1", "ab1c@gmail.com", 24, "sarath56"),
             UserProfile("Oliver", "Oliver@gmail.com", 28, "Oliver"),
             UserProfile("Lucas", "Lucas@gmail.com", 23, "Lucas"),
             UserProfile("William", "William@gmail.com", 30, "William"),
@@ -72,13 +72,13 @@ class MainActivity : AppCompatActivity() {
          */
         binding.btnSignIn.setOnClickListener {
             val userName : String = binding.etUserName.text.toString()
-            viewModel.getData(userName)
+            viewModel.verifyUserLogin(userName)
         }
 
         lifecycleScope.launchWhenStarted {
-            viewModel.registerData.collect{ event->
+            viewModel.loginData.collect{ event->
                 when(event){
-                    is MainViewModel.RegisterEvent.Success ->{
+                    is MainViewModel.LoginEvent.Success ->{
                         binding.progressBarMainActivity.isVisible = false
                         val password = event.result
                         if (password == binding.etPassword.text.toString()){
@@ -89,13 +89,13 @@ class MainActivity : AppCompatActivity() {
                             Toast.makeText(this@MainActivity,R.string.invalid_credential,Toast.LENGTH_LONG).show()
                         }
                     }
-                    is MainViewModel.RegisterEvent.Failure ->{
+                    is MainViewModel.LoginEvent.Failure ->{
                         Toast.makeText(this@MainActivity,R.string.invalid_credential,Toast.LENGTH_LONG).show()
                         /**
                          * code for unsuccessful login
                          */
                     }
-                    is MainViewModel.RegisterEvent.Loading -> {
+                    is MainViewModel.LoginEvent.Loading -> {
                         binding.progressBarMainActivity.isVisible = true
                     }
                     else -> Unit

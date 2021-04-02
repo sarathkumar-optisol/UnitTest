@@ -19,20 +19,26 @@ class DefaultMainRepository @Inject constructor(
         return Resource.Success(1)
     }
 
-    override fun getUserData(userName: String): Resource<LogInData> {
-        val data = db.getUserDao().getData(userName)
-        return Resource.Success(data)
-    }
-
-    override fun getUserList(): Resource<List<LogInData>> {
-        val userList = db.getUserDao().getUserList()
-        return Resource.Success(userList)
-    }
+//    override fun getUserData(userName: String): Resource<LogInData> {
+//        val data = db.getUserDao().getData(userName)
+//        return Resource.Success(data)
+//    }
+//
+//    override fun getUserList(): Resource<List<LogInData>> {
+//        val userList = db.getUserDao().getUserList()
+//        return Resource.Success(userList)
+//    }
 
     override fun getUserProfileList(): Resource<List<UserProfile>> {
         val userProfile=db.getUserDao().getUserProfileList()
         return Resource.Success(userProfile)
     }
+
+    override fun getUserLoginDetail(userName: String): Resource<UserProfile> {
+        val userLoginDetail = db.getUserDao().getUserLoginDetail(userName)
+        return Resource.Success(userLoginDetail)
+    }
+
 
     override suspend fun insertUserProfile(userProfile: UserProfile): Resource<Long> {
         val userProfile = db.getUserDao().insertUserProfile(userProfile)

@@ -11,11 +11,13 @@ interface MainRepository {
 
     suspend fun insertUserData(userName : String , password : String) : Resource<Long>
 
-    fun getUserData(userName: String) : Resource<LogInData>
+//    fun getUserData(userName: String) : Resource<LogInData>
 
-    fun getUserList() : Resource<List<LogInData>>
+//    fun getUserList() : Resource<List<LogInData>>
 
     fun getUserProfileList() : Resource<List<UserProfile>>
+
+    fun getUserLoginDetail(userName: String) : Resource<UserProfile>
 
     suspend fun insertUserProfile(userProfile: UserProfile) : Resource<Long>
 

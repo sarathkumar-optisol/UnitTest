@@ -96,45 +96,69 @@ class MainViewModel @ViewModelInject constructor(
        }
    }
 
-    fun getData(userName: String){
+//    fun getData(userName: String){
+//        viewModelScope.launch(dispatchers.io) {
+//            _loginData.value = LoginEvent.Loading
+//            when (val loginResponse = repository.getUserData(userName)) {
+//                is Resource.Error -> {
+//                    _registerData.value = RegisterEvent.Failure("Incorrect")
+//                    Log.d("MVIEWMODEL", "Incorrect")
+//                }
+//                is Resource.Success -> {
+//                    val data = loginResponse.data
+//                    Log.d("$data", "registrationResponse")
+//                    if (data == null) {
+//                        _registerData.value = RegisterEvent.Failure("UnExpected Error")
+//                    } else {
+//                        _registerData.value = RegisterEvent.Success(data.password)
+//
+//                        Log.d("$data", "success")
+//                    }
+//                }
+//            }
+//
+//        }
+//    }
+
+//    fun getUserList(){
+//        viewModelScope.launch(dispatchers.io) {
+//            _userListData.value = UserListEvent.Loading
+//            when (val userListResponse = repository.getUserList()) {
+//                is Resource.Error -> {
+//                    _userListData.value = UserListEvent.Failure("Incorrect")
+//                    Log.d("MVIEWMODEL", "Incorrect")
+//                }
+//                is Resource.Success -> {
+//                    val data = userListResponse.data
+//                    Log.d("$data", "ALLUSERDATA")
+//                    if (data == null) {
+//                        _userListData.value = UserListEvent.Failure("UnExpected Error")
+//                    } else {
+//                        _userListData.value = UserListEvent.Success(data)
+//                        Log.d("$data", "success")
+//                    }
+//                }
+//            }
+//
+//        }
+//    }
+
+    fun verifyUserLogin(userName: String){
         viewModelScope.launch(dispatchers.io) {
             _loginData.value = LoginEvent.Loading
-            when (val loginResponse = repository.getUserData(userName)) {
+            when (val loginResponse = repository.getUserLoginDetail(userName)) {
                 is Resource.Error -> {
-                    _registerData.value = RegisterEvent.Failure("Incorrect")
+                    _loginData.value = LoginEvent.Failure("Incorrect")
                     Log.d("MVIEWMODEL", "Incorrect")
                 }
                 is Resource.Success -> {
                     val data = loginResponse.data
                     Log.d("$data", "registrationResponse")
                     if (data == null) {
-                        _registerData.value = RegisterEvent.Failure("UnExpected Error")
+                        _loginData.value = LoginEvent.Failure("UnExpected Error")
                     } else {
-                        _registerData.value = RegisterEvent.Success(data.password)
+                        _loginData.value = LoginEvent.Success(data.password)
 
-                        Log.d("$data", "success")
-                    }
-                }
-            }
-
-        }
-    }
-
-    fun getUserList(){
-        viewModelScope.launch(dispatchers.io) {
-            _userListData.value = UserListEvent.Loading
-            when (val userListResponse = repository.getUserList()) {
-                is Resource.Error -> {
-                    _userListData.value = UserListEvent.Failure("Incorrect")
-                    Log.d("MVIEWMODEL", "Incorrect")
-                }
-                is Resource.Success -> {
-                    val data = userListResponse.data
-                    Log.d("$data", "ALLUSERDATA")
-                    if (data == null) {
-                        _userListData.value = UserListEvent.Failure("UnExpected Error")
-                    } else {
-                        _userListData.value = UserListEvent.Success(data)
                         Log.d("$data", "success")
                     }
                 }
