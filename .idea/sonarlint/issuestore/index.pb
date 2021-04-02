@@ -92,3 +92,11 @@ Y
 ,app/src/main/res/layout/fragment_profile.xml,b\4\b4466735edf81a3353097aecb75b46205cdee6b6
 ]
 -app/src/main/res/layout/fragment_settings.xml,4\f\4fc5b33bc32b9fda83e2938a513ac8733024f0ff
+~
+Napp/src/test/java/com/example/unittest/unittestsamples/RegistrationUtilTest.kt,6\6\6600544059ab4f9897fe834988a6c590f818ff5c
+r
+Bapp/src/main/java/com/example/unittest/testing/RegistrationUtil.kt,8\7\87b4808410401359cc991427d491ab472320ff04
+k
+;app/src/main/java/com/example/unittest/testing/LoginUtil.kt,0\8\08f3f33e4f309d179469d7ce8cd73d9348832b24
+w
+Gapp/src/test/java/com/example/unittest/unittestsamples/LoginUtilTest.kt,4\4\44fe9e61c11701871d5fd014d14a55d3f34ebe22

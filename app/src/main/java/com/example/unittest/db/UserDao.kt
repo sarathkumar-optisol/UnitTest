@@ -25,6 +25,10 @@ interface UserDao {
 
     @Query("SELECT * FROM userprofiledata")
     fun getUserProfileList() : List<UserProfile>
+
+    @Query("SELECT * FROM userprofiledata WHERE email = :key")
+    fun getUserLoginDetail(key: String) : UserProfile
+
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertUserProfile(userProfile: UserProfile) : Long
 

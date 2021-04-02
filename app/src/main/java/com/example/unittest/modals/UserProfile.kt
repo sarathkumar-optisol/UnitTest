@@ -18,8 +18,8 @@ data class UserProfile(
         var email : String,
         @SerializedName("age")
         var age : Int,
-        @SerializedName("nikeName")
-        var nickName : String
+        @SerializedName("password")
+        var password : String
 ){
         @PrimaryKey(autoGenerate = true)
         @SerializedName("id")
