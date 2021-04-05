@@ -100,3 +100,7 @@ k
 ;app/src/main/java/com/example/unittest/testing/LoginUtil.kt,0\8\08f3f33e4f309d179469d7ce8cd73d9348832b24
 w
 Gapp/src/test/java/com/example/unittest/unittestsamples/LoginUtilTest.kt,4\4\44fe9e61c11701871d5fd014d14a55d3f34ebe22
+q
+Aapp/src/main/java/com/example/unittest/testing/ProfileUtilTest.kt,8\0\80c7e1e37e3cd22bed8e245a591d385f5024440f
+y
+Iapp/src/test/java/com/example/unittest/unittestsamples/ProfileUtilTest.kt,7\6\764c628584374eedb30748299a76b44107c70280
