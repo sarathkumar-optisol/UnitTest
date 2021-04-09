@@ -12,6 +12,7 @@ import com.example.unittest.R
 import com.example.unittest.adapter.UserProfileListAdapter
 import com.example.unittest.databinding.FragmentHomeBinding
 import com.example.unittest.main.MainViewModel
+import com.example.unittest.modals.UserProfile
 import kotlinx.coroutines.flow.collect
 
 /**
@@ -50,13 +51,10 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 when(event){
                     is MainViewModel.ProfileListEvent.Success ->{
                         //binding.progressBarMainActivity.isVisible = false
-                        val data = event.result
+                        val data = event.result as MutableList<UserProfile>
 
-                        userProfileListAdapter.userListAdapter = event.result.toMutableList()
-                        for (i in data){
-                            Log.d("DATA","$i")
-
-                        }
+                        userProfileListAdapter.userListAdapter = event.result as MutableList<UserProfile>
+                        for (i in data) Log.d("DATA","$i")
 
                     }
                     is MainViewModel.ProfileListEvent.Failure ->{

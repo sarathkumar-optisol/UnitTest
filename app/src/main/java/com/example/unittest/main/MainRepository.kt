@@ -1,5 +1,6 @@
 package com.example.unittest.main
 
+import androidx.lifecycle.LiveData
 import com.example.unittest.modals.UserProfile
 import com.example.unittest.utils.Resource
 
@@ -8,7 +9,7 @@ import com.example.unittest.utils.Resource
  */
 interface MainRepository {
 
-    fun getUserProfileList() : Resource<List<UserProfile>>
+    fun getUserProfileList() : Resource<LiveData<List<UserProfile>>>
 
     fun getUserLoginDetail(userName: String) : Resource<UserProfile>
 

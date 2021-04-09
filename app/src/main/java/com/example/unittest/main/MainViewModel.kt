@@ -2,6 +2,7 @@ package com.example.unittest.main
 
 import android.util.Log
 import androidx.hilt.lifecycle.ViewModelInject
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.unittest.db.UserDatabase
@@ -31,7 +32,7 @@ class MainViewModel @ViewModelInject constructor(
         object Empty : RegisterEvent()
     }
     sealed class ProfileListEvent {
-        class Success(val result: List<UserProfile>) : ProfileListEvent()
+        class Success(val result: LiveData<List<UserProfile>>) : ProfileListEvent()
         class Failure(val error: String) : ProfileListEvent()
         object Loading : ProfileListEvent()
         object Empty : ProfileListEvent()

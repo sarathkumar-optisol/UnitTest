@@ -1,5 +1,6 @@
 package com.example.unittest.main
 
+import androidx.lifecycle.LiveData
 import com.example.unittest.db.UserDatabase
 import com.example.unittest.modals.UserProfile
 import com.example.unittest.utils.Resource
@@ -13,7 +14,7 @@ class DefaultMainRepository @Inject constructor(
 ) : MainRepository {
 
 
-    override fun getUserProfileList(): Resource<List<UserProfile>> {
+    override fun getUserProfileList(): Resource<LiveData<List<UserProfile>>> {
         val userProfile=db.getUserDao().getUserProfileList()
         return Resource.Success(userProfile)
     }
