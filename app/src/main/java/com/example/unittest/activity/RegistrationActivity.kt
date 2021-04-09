@@ -27,9 +27,8 @@ class RegistrationActivity : AppCompatActivity() {
 
     private val viewModel : MainViewModel by viewModels()
 
-    lateinit var sharedPreferences: SharedPreferences
-
     lateinit var userName : String
+
     lateinit var password : String
 
 
@@ -57,8 +56,7 @@ class RegistrationActivity : AppCompatActivity() {
          * UserRegistration
          */
 
-        sharedPreferences = getSharedPreferences("token" , Context.MODE_PRIVATE)
-        val editor = sharedPreferences.edit()
+
 
 
         binding.btnSignUp.setOnClickListener {
@@ -71,8 +69,10 @@ class RegistrationActivity : AppCompatActivity() {
                 Toast.makeText(this,"Enter Valid email or password", Toast.LENGTH_SHORT).show()
                 binding.progressBar.isVisible = false
             }else{
-                viewModel.registerUser(userName, password
-                )
+                /**
+                 * register new user
+                 */
+               // viewModel.registerUser(userName, password)
             }
         }
 
@@ -85,13 +85,6 @@ class RegistrationActivity : AppCompatActivity() {
                     when(event){
                         is MainViewModel.RegisterEvent.Success ->{
                             binding.progressBar.isVisible = false
-                            editor.apply{
-                                putString("token", userName)
-                                Log.d("TOKEN",userName)
-                                apply()
-                            }
-                            val token = sharedPreferences.getString("token","kk")
-                            Log.d("TOKEN","$token")
 
                             val intent = Intent(this@RegistrationActivity,HomeActivity::class.java)
                             startActivity(intent)

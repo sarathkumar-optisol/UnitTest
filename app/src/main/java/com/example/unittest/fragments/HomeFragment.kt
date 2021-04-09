@@ -9,7 +9,6 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.unittest.R
-import com.example.unittest.adapter.UserListAdapter
 import com.example.unittest.adapter.UserProfileListAdapter
 import com.example.unittest.databinding.FragmentHomeBinding
 import com.example.unittest.main.MainViewModel
@@ -18,7 +17,7 @@ import kotlinx.coroutines.flow.collect
 /**
  * Created by SARATH on 31-03-2021
  */
-class HomeFragament : Fragment(R.layout.fragment_home) {
+class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private lateinit var binding : FragmentHomeBinding
 

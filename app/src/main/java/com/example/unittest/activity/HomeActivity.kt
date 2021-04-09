@@ -1,30 +1,20 @@
 package com.example.unittest.activity
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.activity.viewModels
-import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.lifecycleScope
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.unittest.R
-import com.example.unittest.adapter.UserListAdapter
 import com.example.unittest.adapter.UserProfileListAdapter
-import com.example.unittest.adapter.ViewPagerAdapter
 import com.example.unittest.databinding.ActivityHomeBinding
-import com.example.unittest.fragments.HomeFragament
+import com.example.unittest.fragments.HomeFragment
 import com.example.unittest.fragments.ProfileFragment
 import com.example.unittest.fragments.SettingsFragment
 import com.example.unittest.main.MainViewModel
-import com.example.unittest.modals.UserProfile
-import com.google.android.material.tabs.TabLayoutMediator
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.collect
 
 @AndroidEntryPoint
 class HomeActivity : AppCompatActivity() {
@@ -36,7 +26,7 @@ class HomeActivity : AppCompatActivity() {
 
     lateinit var userListAdapter: UserProfileListAdapter
 
-    lateinit var homeFragament : HomeFragament
+    lateinit var homeFragament : HomeFragment
 
     lateinit var profileFragment: ProfileFragment
 
@@ -48,16 +38,13 @@ class HomeActivity : AppCompatActivity() {
 
 
         setContentView(R.layout.activity_home)
-//        binding = ActivityHomeBinding.inflate(layoutInflater)
-//        setContentView(binding.root)
 
 
-      replaceFragment(HomeFragament(),"Home")
+      replaceFragment(HomeFragment(),"Home")
 
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        //return super.onCreateOptionsMenu(menu)
 
         menuInflater.inflate(R.menu.main_menu,menu)
         return true
@@ -68,7 +55,7 @@ class HomeActivity : AppCompatActivity() {
         when(item.itemId){
             R.id.homeFrg ->{
                 Toast.makeText(this,"home",Toast.LENGTH_SHORT).show()
-                replaceFragment(HomeFragament(),"HomeFragment")
+                replaceFragment(HomeFragment(),"HomeFragment")
             }
             R.id.profile ->{
                 Toast.makeText(this,"profile",Toast.LENGTH_SHORT).show()
