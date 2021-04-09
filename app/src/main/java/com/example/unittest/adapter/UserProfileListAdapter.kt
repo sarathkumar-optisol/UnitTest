@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.unittest.databinding.UserListBinding
-import com.example.unittest.modals.LogInData
 import com.example.unittest.modals.UserProfile
 
 /**

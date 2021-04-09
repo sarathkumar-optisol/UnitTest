@@ -24,11 +24,7 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
         binding = FragmentSettingsBinding.bind(view)
 
 
-        sharedPreference = this.activity!!.getSharedPreferences("token", Context.MODE_PRIVATE)
-
-
         binding.btnLogOut.setOnClickListener {
-            sharedPreference.edit().remove("token").commit()
             val intent = Intent(activity, MainActivity::class.java)
             startActivity(intent)
             activity?.finish()
